@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.3.17)  31 MAR 2015 23:25
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.9.28)  1 APR 2015 16:47
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -277,45 +277,110 @@ Overfull \hbox (19.7129pt too wide) detected at line 420
  []
 
 
-Overfull \hbox (50.22934pt too wide) in paragraph at lines 439--439
+Overfull \hbox (61.0906pt too wide) in paragraph at lines 440--440
 [] 
  []
 
 [3
 
 ]
-Overfull \hbox (37.85869pt too wide) detected at line 453
- []$[]  \OT1/cmr/m/n/12 (\OML/cmm/m/it/12 e[] \OMS/cmsy/m/n/12 ^^@ \OML/cmm/m/i
-t/12 e[]\OT1/cmr/m/n/12 ) = []$ []  
+Overfull \hbox (32.16127pt too wide) detected at line 453
+ []$[]  [] \OT1/cmr/m/n/12 = []$ []  
  []
 
+
+Overfull \hbox (82.7143pt too wide) detected at line 475
+\OML/cmm/m/it/12 ^^[[]c^^L\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 e[] \OMS/cmsy/m/n/1
+2 ^^@ \OML/cmm/m/it/12 e[]\OT1/cmr/m/n/12 ) = \OML/cmm/m/it/12 ^^W[] [] \OMS/cm
+sy/m/n/12 ^^@ [] []
+ []
+
+[4]
+
+LaTeX Warning: Reference `mat_eq' on page 5 undefined on input line 508.
+
+
+Overfull \hbox (8.78018pt too wide) in paragraph at lines 529--529
+[] 
+ []
+
+
+LaTeX Warning: Reference `new_planck' on page 5 undefined on input line 538.
+
+[5]
+
+LaTeX Warning: Reference `lo_t_new' on page 6 undefined on input line 548.
+
+
+Overfull \hbox (14.29239pt too wide) detected at line 566
+[] [][] \OML/cmm/m/it/12 b[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x\OT1/cmr/m/n/12 
+)\OML/cmm/m/it/12 ^^^\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x\OT1/cmr/m/n/12 )d\OML/
+cmm/m/it/12 x \OT1/cmr/m/n/12 = \OMS/cmsy/m/n/12 h\OML/cmm/m/it/12 ^^[[]\OT1/cm
+r/m/n/12 (1 \OMS/cmsy/m/n/12 ^^@ \OML/cmm/m/it/12 f[]\OT1/cmr/m/n/12 )\OMS/cmsy
+/m/n/12 i[]h\OML/cmm/m/it/12 ^^^[]\OMS/cmsy/m/n/12 i[]
+ []
+
+
+LaTeX Warning: Reference `temp_moms' on page 6 undefined on input line 574.
+
+[6]
+
+LaTeX Warning: Reference `lo_tran' on page 7 undefined on input line 595.
+
+
+Overfull \hbox (14.40045pt too wide) detected at line 609
+ []$[]   \OMS/cmsy/m/n/12 ^^@ \OT1/cmr/m/n/12 2\OML/cmm/m/it/12 ^^V[]^^^[] \OT1
+/cmr/m/n/12 + \OMS/cmsy/m/n/12 h\OML/cmm/m/it/12 ^^V\OMS/cmsy/m/n/12 i[]h\OML/c
+mm/m/it/12 ^^^\OMS/cmsy/m/n/12 i[] \OT1/cmr/m/n/12 + \OMS/cmsy/m/n/12 h\OML/cmm
+/m/it/12 ^^V\OMS/cmsy/m/n/12 i[]h\OML/cmm/m/it/12 ^^^\OMS/cmsy/m/n/12 i[] \OT1/
+cmr/m/n/12 + [] \OML/cmm/m/it/12 h[]\OMS/cmsy/m/n/12 h\OML/cmm/m/it/12 ^^^\OMS/
+cmsy/m/n/12 i[]$ 
+ []
+
+
+LaTeX Warning: Reference `temp_const' on page 7 undefined on input line 624.
+
+
+LaTeX Warning: Reference `lo_trans_fin' on page 7 undefined on input line 645.
+
+
+LaTeX Warning: Reference `new_temp' on page 7 undefined on input line 648.
+
+[7]
 No file linearization.bbl.
-[4] (./linearization.aux) ) 
+[8] (./linearization.aux)
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+ ) 
 Here is how much of TeX's memory you used:
- 3140 strings out of 493304
- 38969 string characters out of 6139871
- 108174 words of memory out of 5000000
- 6543 multiletter control sequences out of 15000+600000
+ 3150 strings out of 493304
+ 39082 string characters out of 6139871
+ 108183 words of memory out of 5000000
+ 6553 multiletter control sequences out of 15000+600000
  11975 words of font info for 46 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 38i,10n,30p,321b,183s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/am
-sfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
-/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-mi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pf
-b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr
-/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/
-texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-d
-ist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/font
-s/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type
-1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
-c/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
-onts/cm/cmti7.pfb>
-Output written on linearization.pdf (4 pages, 148387 bytes).
+ 38i,10n,30p,321b,192s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy
+6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><
+/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/s
+hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti7.pfb>
+Output written on linearization.pdf (8 pages, 177814 bytes).
 PDF statistics:
- 69 PDF objects out of 1000 (max. 8388607)
- 49 compressed objects within 1 object stream
+ 87 PDF objects out of 1000 (max. 8388607)
+ 62 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

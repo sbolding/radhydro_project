@@ -421,21 +421,22 @@ quantities in the above equation as
 We then linearize the Planckian function about some temperature near $T^{n+1}$, denoted
 $T^k$. The linearized Planckian is
 \begin{equation}
-    \left( T^{n+1,k+1} \right)^4 = (T^k)^4 + \frac{4(T^k)^3}{\rho^{n+1} c_v^k}\left(
-    e^{n+1,k+1} - e^{k}  \right).
+  \sigma_a a c  \left( T^{n+1,k+1} \right)^4 = \sigma_a a c \left[(T^k)^4 + \frac{4(T^k)^3}{c_v^k}\left(
+  e^{n+1,k+1} - e^{k}  \right)\right].
     \label{eq:linearize}
 \end{equation}
 For the initial iteration $T^k=T^n$.  The above equation is substituted into
-Eq.~\eqref{eq:mat} and we define $\beta^k=\frac{4a(T^k)^3}{\rho^{n+1}c_v^k}$ for
-clarity. The resulting equation can be solved for $e^{n+1,k+1} - e^{k}$ 
+Eq.~\eqref{eq:mat} and we define $\beta^k=\frac{4a(T^k)^3}{c_v^k}$ for
+clarity. The resulting equation can be solved for $(e^{n+1,k+1} -
+e^{k})$ 
 through algebraic manipulation:
 \begin{align*}
     \frac{E^{n+1} - E^*}{\Dt} &= - \frac{1}{2}\left[\sa^{n+1,k} c \left(
-a(T^{n+1,k+1})^4 - \ER^{n+1,k}\right)\right]+Q_E^k \\
+a(T^{n+1,k+1})^4 - \ER^{n+1,k+1}\right)\right]+Q_E^k \\
     \frac{E^{n+1} - E^*}{\Dt} &= - \frac{1}{2}\left[\sa^{n+1,k}c\left(
-a(T^k)^4 + \beta^k(e^{n+1} - e^k)  - \ER^{n+1,k}\right)\right]+Q_E^k \\
+a(T^k)^4 + \beta^k(e^{n+1} - e^k)  - \ER^{n+1,k+1}\right)\right]+Q_E^k \\
 \frac{E^{n+1}-\rho^{n+1} e^k + \rho^{n+1} e^k - E^*}{\Dt} &= -\frac{1}{2}\left[\sa^{n+1,k}c\left(
-a(T^k)^4 + \beta^k(e^{n+1} - e^k)  - \ER^{n+1,k}\right)\right]+Q_E^k 
+a(T^k)^4 + \beta^k(e^{n+1} - e^k)  - \ER^{n+1,k+1}\right)\right]+Q_E^k 
 \end{align*}
 We drop the superscript on $\rho$ because $\rho^{n+1} = \rho^*$. Then, the left hand
 side can be simplified as 
@@ -444,19 +445,212 @@ side can be simplified as
     E^*}{\Dt} = \frac{\rho}{\Dt}\left[(e^{n+1} - e^{k}) +
     \frac{1}{2}(u^{n+1,2}-u^{*2}) + (e^k-e^*) \right]
 \end{equation}
-Solution of the main equation for the desired quantity gives
+Solution of the main equation for the desired quantity then gives
 \begin{multline}
-     (e^{n+1}-e^k)= 
-     \frac{{\Dt}\left( \frac{1}{2}\sa c (E^{n+1,k+1} - a(T^k)^4)- \rho(e^k-e^*)-
-     \frac{1}{2}(u^{n+1,2}-u^{*2})+Q_E^k \right)}{\rho\left[1+\frac{1}{2}\sa c \Dt
-     \beta^k\right]}
+    {e^{n+1}-e^k}= \frac{{\Dt}\left( \frac{1}{2}\sa c (\ER^{n+1,k+1} - a(T^k)^4)+Q_E^k \right)- \rho(e^k-e^*)-
+     \frac{\rho}{2}(u^{n+1,2}-u^{*2})}{\left[\rho +\frac{1}{2}\sa c \Dt
+     \beta\right]}\label{eq:energy_update}
 \end{multline}
+We then multiply the above equation by $\sigma_a c \beta^k$ and divide the RHS by
+$\rho/\rho$; this will simplify 
+substitution back into Eq.~\eqref{eq:linearize}.
+\begin{multline}
+    \sa c \beta (e^{n+1} - e^k) = \frac{\frac{1}{2}\sigma_a a c \Dt \frac{\beta}{\rho}}{1
+        +\frac{1}{2}\sa c \Dt \frac{\beta}{\rho}}\left(\sa c
+        \left[\ER^{n+1,k+1} - a (T^k)^4\right] + 2Q_E^k\right)\\
+        - \left(\frac{\frac{1}{2}\sa c \frac{\beta}{\rho} \Dt}{1 +\frac{1}{2}\sa c \Dt
+        \frac{\beta}{\rho}}\right)\left(\frac{2\rho}{\Dt}\right)\left[(e^k - e^*) + \frac{1}{2}(u^{n+1,2} - u^{*2})\right]
+ \end{multline}
+The effective scattering fraction $\nu_{1/2}$, for the case of Crank Nicolson, is
+defined as
+\begin{equation}
+    \nu_{1/2} = \frac{\sigma_a c \frac{\beta^k}{\rho}}{\frac{2}{\Dt}+ \sa c
+    \frac{\beta^k}{\rho}  }.
+\end{equation}
+Substituting back into the main equation, the result can be simplified as.
+\begin{equation*}
+    \sa c \beta(e^{n+1} - e^k) = \nu_{1/2} \left(\sa c
+    \left[\ER^{n+1,k+1} - a (T^k)^4\right] + 2Q_E^k\right) -
+    \frac{2\nu_{1/2}\rho}{\Dt} \left[(e^k - e^*) + \frac{1}{2}(u^{n+1,2} - u^{*2})\right]
+\end{equation*}
+Finally, this can be substituted into Eq.~\eqref{eq:linearize} and the $(T^k)^4$
+terms simplified, giving the source term
+\begin{multline}
+    \sigma_a a c\left(T^{n+1,k+1}\right)^4 = \left(1 - \nu_{1/2}\right)\sigma_a a c (T^k)^4 + \sigma_a
+    c \nu_{1/2} \ER^{n+1,k+1}+\\2\nu_{1/2}Q_E^k - \frac{2\rho\nu}{\Dt} \left[(e^k -
+    e^*) + \frac{1}{2}(u^{n+1,2} - u^{*2})\right].
+\end{multline}
+The above expression can be substituted for the emission source in the S$_2$
+equations, includeing an effective scattering cross section given by $\sigma_a \nu$.  After
+solving for $\ER^{n+1,k+1}$, a new internal energy can be estimated using
+Eq.~\eqref{eq:energy_update}.
 
 
 
 
 
 
+
+
+
+
+
+
+Because we have only considered problems with constant densities and heat capacities, the following
+derivation is depicted in terms of temperature $T$ rather than material energy
+for simplicity.  Application of the first order Taylor expansion in time of the
+gray emission source $B(T)$, about some temperature $T^*$ at some
+time near $t^{n+1}$ gives
+\begin{equation}\label{new_planck}
+    \sigma_a^* a c T^{4,n+1} \simeq \sigma_a^* a c \left[T^{*4} + (T^{n+1} - T^*) 4T^{*3} \right]
+\end{equation}
+where $\sigma_a^*$ is evaluated at $T^*$.  Substitution of this into the material
+energy equation given by Eq.~\eqref{mat_eq} yields
+\begin{equation}
+    \rho c_v \left( \frac{T^{n+1} - T^{n}}{\Delta t} \right) = \sigma_a^* \phi^{n+1} -
+    \sigma_a^* a c \left[ T^{*4} +  (T^{n+1} - T^*) 4T^{*3} \right].
+\end{equation}
+Further manipulation to solve for the unkown temperature at the next time step $T^{n+1}$
+yields
+\begin{align*}
+    \rho c_v \left( \frac{T^{n+1} - T^* + T^* - T^n}{\Delta t} \right) 
+    &= \sigma_a^* \phi^{n+1} - \sigma_a^* a c \left[ T^{*4} +  (T^{n+1} - T^*) 4T^{*3}
+\right] \\
+\left( {T^{n+1} - T^*} \right) \left\{\rho c_v + \sigma_a^* a c 4
+T^{*3} \Delta t \right\} &= \Delta t \sigma_a^* \phi^{n+1} - \Delta t \sigma_a^* a c
+T^{*4} + \rho c_v (T^n - T^*) \\
+\left( T^{n+1} - T^* \right) &= \frac{\left( \Delta t \sigma_a^* \phi^{n+1} - \Delta t \sigma_a^* a c
+T^{*4} + \rho c_v (T^n - T^*) \right)}{\left\{\rho c_v + \sigma_a^* a c 4
+T^{*3} \Delta t \right\}} \\
+\left( T^{n+1} - T^* \right) &= \frac{ {\displaystyle \frac{\sigma_a^* \Delta t}{\rho
+c_v}}  \left[ \phi^{n+1} -  a c T^{*4} \right] + (T^n - T^*) }{1 +
+        \sigma_a^* a c \Delta t\frac{\displaystyle 4
+T^{*3}}{\displaystyle \rho c_v } }.
+\end{align*}
+This provides an expression for $T^{n+1}$ as a
+function of $T^*$ and the radiation scalar intensity $\phi^{n+1}$, i.e.,
+\begin{equation}
+\label{lo_t_new}
+T^{n+1}  = \frac{1}{\rho c_v } f\sigma_a^* \Delta t \left( \phi^{n+1} - c a T^{*4} \right)
++ f T^n + (1-f) T^*.
+\end{equation}
+If $T^*=T^n$, then this produces the standard IMC temperature update equation.  The
+expression for $T^{n+1}$ can be substituted back into Eq.~\eqref{new_planck} to form
+an explicit approximation for the emission source at $t_{n+1}$ as
+\begin{equation}\label{t_next1}
+    \sigma_a a c T^{4,n+1} \simeq \sigma_a^* (1 -f^*) \phi^{n+1}
+    + f^* \sigma_a^* a c T^{4,n} + \rho c_v\frac{1-f^*}{\Delta t} (T^N - T^*)
+\end{equation}
+where $f^* = (1 + \sigma_a^* c \Delta t \beta^*)^{-1}$ is the usual Fleck factor with
+\begin{equation}
+    \beta^* = \frac{4 a T^{*3}}{\rho c_v}
+\end{equation}
+The material temperature is updated at the end of the time step using Eq.~\ref{lo_t_new}.
+
+Now, the above equation for $U_r^{n+1}$ must be discretized in space.  Taking the
+left spatial moment yields
+\begin{align}\label{temp_moms}
+    \mom{\sigma_a^* a c T^{4,n+1}}_L =& \frac{2}{h_i} \int_{x_\il} ^{x_{\ir}}
+    b_L(x) \left[ \sigma_a^*(1-f^*)\phi^{n+1} + f^* \sigma_a^* a c T^{4,n}\right] \d x.
+\end{align}
+To keep the derivation general, we look at the two terms on the right side
+seperately: $f^* \sigma_a^* a c T^{4,n}$ can be evaluated explicitly because the spatial
+dependence over a cell of $T^{4,n}$ is already assumed LD. 
+ The $\phi^{n+1}$ term is divided and multiplied by a normalization integral
+to form the appropriate average
+\begin{equation}
+    \left\{ \displaystyle \frac{ \displaystyle \frac{2}{h_i} \int_{x_\il} ^{x_{\ir}}
+    b_L(x) \sigma_a^*(1-f^*)\phi^{n+1}}{\displaystyle\frac{2}{h_i} \int_{x_\il} ^{x_{\ir}} b_L(x)
+\phi(x) \d x} \right\} \int_{x_\il} ^{x_{\ir}} b_L(x)  \phi(x) \d x = \mom{\sigma_a^*
+(1-f^*) }_L \mom{\phi^{n+1}}_L
+\end{equation}
+where the quotient in braces is defined as $\mom{\sigma_a^*(1-f^*)}_L$ and
+$\mom{\phi}^{n+1}_L= \mom{\phi}_L^{+,n+1}+\mom{\phi}_L^{-,n+1}$ is in terms of
+the desired unknowns. 
+
+The evaluation of $\mom{\sigma_a^*(1-f^*)}_L$ is performed
+based on the assumed spatial dependence over a cell of $\sigma_a$ and $f^*$.  If $f^*$
+and $\sigma_a^*$ are assumed constant over a cell (i.e., the dependence of these terms
+on temperature is assumed constant over a cell), Eq.~\eqref{temp_moms} reduces to
+\begin{equation}\label{temp_const}
+    \mom{\sigma_a^* a c T^{4,n+1}}_L = \sigma^*_{a}(1-f^*)\mom{\phi^{n+1}}_L +
+    f^*
+    \sigma^*_{a} \mom{ a c T^{4,n}}_L
+\end{equation}
+where 
+\begin{equation}
+    f^* = f(T^*_{avg,i}) = f\left(\sqrt[4]{\frac{T^{*4}_{L,i}+T^{*4}_{R,i}}{2}}\right)
+\end{equation}
+and $\sigma^* = \sigma_a(T^*_{avg,i})$.  Constant cross sections over a cell
+have been assumed for the first iteration of the code.   If an LD
+dependence of the cross sections and temperature is used, $\mom{\sigma_a^*(1-f^*)}_L$
+can be evaluated without truncation via a Gaussian quadrature or analytical
+integration and use of the previous (in the HOLO context) HO fine mesh solution; this
+is the same procedure used for evaluation of the consistency terms.  It will likely
+be easier to use the full non-linear NK solve to handle the LD case than to try to
+define an LD dependence of $f$.
+
+Based on a guess for $T^*$, the above equation gives an expression for
+the Planckian emission source on the right hand side
+of Eq.~\eqref{lo_tran} with an additional effective scattering source.
+This allows for four linear equations for the four remaining radiation unknowns to be fully
+defined.  The final equation for the left basis moment and positive flow, for constant
+$f^*$ and $\sigma_a^*$ over a cell, becomes
+\begin{multline}\label{lo_trans_fin}
+    -2{\mu}_{i-1/2}^{n+1,+} \phi_{i-1/2}^{n+1,+} + \mom {\mu}_{L,i}^{n+1,+}
+  \mom{\phi}_{L,i}^{n+1,+}
+  +  \mom\mu_{R,i}^{n+1,+}
+  \mom{\phi}_{R,i}^{n+1,+} +  \left(\sigma_t^*+\frac{1}{c \Delta t} \right) h_i 
+  \mom{\phi}_{L,i}^{n+1,+} \\- \frac{h_i}{2}\left(\sigma_s^* + \sigma_a^*(1-f^*)\right)
+  \left( \mom{\phi}_{L,i}^{n+1,+} +
+  \mom\phi_{L,i}^{n+1,-}\right) = \\ \frac{1}{2} h_i \sigma_a^*a c f^* \left(\frac{2}{3} T_{L,i}^{4,n} +
+  \frac{1}{3} T_{R,i}^{4,n} \right) + 
+  \frac{h_i}{c\Delta t}\mom{\phi}_{L,i}^{n,+}
+\end{multline}
+%In operator
+%notation, denote the LO system in operator notation to be
+%\begin{equation}
+%    \B D(T) \Phi = \B B(T),
+%\end{equation}
+%where $\B B$ denotes the emission source and $\B D$ accounts for the effective
+%scattering source, as a function of temperature.
+
+THIS SECTION IS NOT COMPLETELY RIGHT
+
+Once these linear equations have been solved for $\phi^{n+1}$, a new estimate of
+$T^{n+1}$ can be determined.  To conserve energy, the same linearization used to
+solve the radiation equation must be used in the material energy equation.
+Substitution of
+Eq.~\eqref{temp_const} into the material energy equation yields
+\begin{equation} 
+    \rho c_v\frac{ T^{n+1}-T^n}{\Delta t} = \sigma_a^* \phi^{n+1} - \left(\sigma_a^*  (1 -f) \phi^{n+1}
+    + f \sigma_a^* a c T^{4,n} \right),
+\end{equation}
+which gives a temperature at the end of the time step as
+\begin{equation}\label{new_temp}
+    T^{n+1}= \frac{f^* \sigma_a^* \Delta t}{\rho c_{v}}  \left( \phi^{n+1}
+    - c a T^{n4}\right)
+    +  T^n,   
+\end{equation}
+This is how the IMC method estimates the temperature at the end of the time
+step, following the MC solve.  Here, the LO radiation equations have taken the place of the Monte Carlo
+solve.  To account for spatial dependence, the above equation can simply be evaluated
+using $\phi^{n+1}_L$ and $T^*_L$ to get $T_L^{n+1}$.
+
+Based on these equations, the algorithm for solving the LO system with constant $f^*$
+and cross sections over a cell is defined as
+\begin{enumerate}
+    \item Guess $T^*_L$ and $T^*_R$, typically using $T^n$.
+    \item  Build the LO system based on the effective scattering $(1-f^*)$ and emission terms
+        (i.e., evaluation of  Eq.~\eqref{lo_trans_fin}).
+    \item Solve the linearized LO system to produce an estimate for $\phi^{n+1}$.
+    \item Evaluate a new estimate of the $T_{L,i}$ and $T_{R,i}$ at the end of the time step
+    $\tilde{T}^{n+1}$ using Eq.~\eqref{new_temp}.
+    \item $T^*\leftarrow\tilde{T}^{n+1}$.
+    \item Repeat 2-5 until $\tilde T^{n+1}$ and $\phi^{n+1}$ are converged.
+\end{enumerate}
+Because of the chosen linearization, the convergence primarily takes place in the
+lagged material properties and factor $f$.
 
 
 
