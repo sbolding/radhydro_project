@@ -408,26 +408,49 @@ to be solved in this case are
 \end{multline}
 \begin{multline}
     \frac{E^{n+1}-E^*}{\Dt} = \CNN{\sigma_a c \left( aT^4 - \ER
-\right)}{n}{n+1,k+1} \\ - \CN{\sigma_t \frac{u}{c} \left( \frac{4}{3} \ER u - \FR
+\right)}{n}{n+1,k+1} \\  \CNN{\sigma_t \frac{u}{c} \left( \frac{4}{3} \ER u - \FR
 \right)}{n}{n+1,k}
 \label{eq:mat}
 \end{multline}
-To simplify the algebra, define a source term for all the known, lagged values
+To simplify the algebra, define a source term $Q_E$ for all the known, lagged
+quantities in the above equation as
 \begin{equation}
-    Q_E^{k,n} = \frac{1}{2}\left[\sa\left( a(T^n)^4 - \ER\right)\right]^n -
-    \frac{1}{2}\left[\sigma_t \frac{u}{c} \left( \frac{4}{3} \ER u - \FR\right)\right]^{n+1,k}
+    Q_E^{k} = \frac{1}{2}\left[\sa c\left( a(T^n)^4 - \ER\right)\right]^n 
+ \CNN{\sigma_t \frac{u}{c} \left( \frac{4}{3} \ER u - \FR \right)}{n}{n+1,k}
 \end{equation}
-We linearize the Planckian function about some temperature near $T^{n+1}$, denoted
-$T^k$, giving
+We then linearize the Planckian function about some temperature near $T^{n+1}$, denoted
+$T^k$. The linearized Planckian is
 \begin{equation}
-    \left( T^{n+1,k+1} \right)^4 = (T^k)^4 + \frac{4(T^k)^3}{\rho c_v^k}\left(
-    e^{n+1,k+1} - e^{k}  \right)
+    \left( T^{n+1,k+1} \right)^4 = (T^k)^4 + \frac{4(T^k)^3}{\rho^{n+1} c_v^k}\left(
+    e^{n+1,k+1} - e^{k}  \right).
     \label{eq:linearize}
 \end{equation}
-and substitute this into Eq.~\eqref{eq:mat}.  We then solve for the quantity
-$e^{n+1,k+1} - e^{k}$ through algebraic manipulation, as follows
-
-
+For the initial iteration $T^k=T^n$.  The above equation is substituted into
+Eq.~\eqref{eq:mat} and we define $\beta^k=\frac{4a(T^k)^3}{\rho^{n+1}c_v^k}$ for
+clarity. The resulting equation can be solved for $e^{n+1,k+1} - e^{k}$ 
+through algebraic manipulation:
+\begin{align*}
+    \frac{E^{n+1} - E^*}{\Dt} &= - \frac{1}{2}\left[\sa^{n+1,k} c \left(
+a(T^{n+1,k+1})^4 - \ER^{n+1,k}\right)\right]+Q_E^k \\
+    \frac{E^{n+1} - E^*}{\Dt} &= - \frac{1}{2}\left[\sa^{n+1,k}c\left(
+a(T^k)^4 + \beta^k(e^{n+1} - e^k)  - \ER^{n+1,k}\right)\right]+Q_E^k \\
+\frac{E^{n+1}-\rho^{n+1} e^k + \rho^{n+1} e^k - E^*}{\Dt} &= -\frac{1}{2}\left[\sa^{n+1,k}c\left(
+a(T^k)^4 + \beta^k(e^{n+1} - e^k)  - \ER^{n+1,k}\right)\right]+Q_E^k 
+\end{align*}
+We drop the superscript on $\rho$ because $\rho^{n+1} = \rho^*$. Then, the left hand
+side can be simplified as 
+\begin{equation} 
+    \frac{E^{n+1} - \rho e^k + \rho e^k -
+    E^*}{\Dt} = \frac{\rho}{\Dt}\left[(e^{n+1} - e^{k}) +
+    \frac{1}{2}(u^{n+1,2}-u^{*2}) + (e^k-e^*) \right]
+\end{equation}
+Solution of the main equation for the desired quantity gives
+\begin{multline}
+     (e^{n+1}-e^k)= 
+     \frac{{\Dt}\left( \frac{1}{2}\sa c (E^{n+1,k+1} - a(T^k)^4)- \rho(e^k-e^*)-
+     \frac{1}{2}(u^{n+1,2}-u^{*2})+Q_E^k \right)}{\rho\left[1+\frac{1}{2}\sa c \Dt
+     \beta^k\right]}
+\end{multline}
 
 
 

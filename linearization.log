@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.9.28)  31 MAR 2015 17:53
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.3.17)  31 MAR 2015 23:25
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -270,34 +270,52 @@ Underfull \hbox (badness 10000) detected at line 408
  []$[]  [] \OT1/cmr/m/n/12 =$ []  
  []
 
-No file linearization.bbl.
+
+Overfull \hbox (19.7129pt too wide) detected at line 420
+\OML/cmm/m/it/12 Q[] \OT1/cmr/m/n/12 = [] [][] \OMS/cmsy/m/n/12 ^^@ [] [][] ^^@
+ [] [][]
+ []
+
+
+Overfull \hbox (50.22934pt too wide) in paragraph at lines 439--439
+[] 
+ []
+
 [3
 
-] (./linearization.aux) ) 
+]
+Overfull \hbox (37.85869pt too wide) detected at line 453
+ []$[]  \OT1/cmr/m/n/12 (\OML/cmm/m/it/12 e[] \OMS/cmsy/m/n/12 ^^@ \OML/cmm/m/i
+t/12 e[]\OT1/cmr/m/n/12 ) = []$ []  
+ []
+
+No file linearization.bbl.
+[4] (./linearization.aux) ) 
 Here is how much of TeX's memory you used:
  3140 strings out of 493304
  38969 string characters out of 6139871
- 106174 words of memory out of 5000000
+ 108174 words of memory out of 5000000
  6543 multiletter control sequences out of 15000+600000
  11975 words of font info for 46 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 38i,9n,30p,321b,183s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsf
-onts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
-m/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi
-12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb>
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/s
-hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/te
-xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/te
-xmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts
-/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/
-public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
-/amsfonts/cm/cmti7.pfb>
-Output written on linearization.pdf (3 pages, 137039 bytes).
+ 38i,10n,30p,321b,183s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+mi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pf
+b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr
+/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/
+texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/font
+s/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
+onts/cm/cmti7.pfb>
+Output written on linearization.pdf (4 pages, 148387 bytes).
 PDF statistics:
- 62 PDF objects out of 1000 (max. 8388607)
- 44 compressed objects within 1 object stream
+ 69 PDF objects out of 1000 (max. 8388607)
+ 49 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
